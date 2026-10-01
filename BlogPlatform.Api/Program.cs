@@ -31,4 +31,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Initialize the database and seed it with initial data
+// I used an extension method instead of creating a scope and injecting the Context from here. Both are similar but this keeps Prgoram.cs cleaner :)
+await app.InitializeDatabaseAsync();
+
 app.Run();
