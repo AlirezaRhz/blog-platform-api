@@ -1,6 +1,7 @@
 using BlogPlatform.Api.Data;
 using BlogPlatform.Api.Models;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<BlogContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("sqlite"))
-);
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("sqlite"));
+});
 
 var app = builder.Build();
 
@@ -20,9 +22,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
