@@ -1,19 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace BlogPlatform.Api.DTOs
+﻿namespace BlogPlatform.Api.DTOs
 {
-    public class CreatePostDto
+    public class PostDetailsDto
     {
-        [Required, StringLength(100)]
+        public int Id { get; set; }
+
         public string Title { get; set; } = string.Empty;
 
-        [Required]
         public string Content { get; set; } = string.Empty;
 
-        [Required]
         public string Category { get; set; } = string.Empty;
 
-        [Required, MinLength(1)]
         public List<string> Tags { get; set; } = new List<string>();
+
+        public DateTime CreatedAt { get; set; }
+
+        public DateTime UpdatedAt { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace BlogPlatform.Api.DTOs
 {
-    public class CreatePostDto
+    public class UpdatePost
     {
         [Required, StringLength(100)]
         public string Title { get; set; } = string.Empty;
