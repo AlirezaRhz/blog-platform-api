@@ -7,6 +7,6 @@ namespace BlogPlatform.Api.Data
     {
         public BlogContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Post> Posts = null!;
+        public DbSet<Post> Posts { get; set; }
     }
 }
